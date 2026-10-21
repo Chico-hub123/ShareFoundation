@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's Share Foundation</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ==============================================
+ COLOR PALETTE — YOUR BRAND COLORS
+ Background: Cream #F4F6F6
+ Primary: Deep Blue #1C2833
+ Secondary: Teal #0F7173
+ Accent: Soft Orange #FE8D3F
+ Text: Dark #171717
+ ============================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #171717;
+        background-color: #f4f6f6;
+        line-height: 1.6;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      /* ===== HEADER & NAVIGATION ===== */
+      header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(28, 40, 51, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        flex-wrap: wrap;
+      }
+      .logo img {
+        height: 65px;
+        width: auto;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      nav a {
+        text-decoration: none;
+        color: #171717;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+      nav a:hover {
+        color: #0f7173;
+      }
+      .btn-donate {
+        background-color: #fe8d3f;
+        color: #ffffff !important;
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .btn-donate:hover {
+        background-color: #fd7518;
+        transform: translateY(-2px);
+      }
+      /* ===== HERO SECTION ===== */
+      .hero {
+        background: linear-gradient(135deg, #1c2833 0%, #0f7173 100%);
+        color: #ffffff;
+        padding: 80px 20px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        opacity: 0.9;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background-color: #ffffff;
+        color: #1c2833;
+        padding: 12px 30px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+      }
+      .btn-secondary {
+        background-color: transparent;
+        color: #ffffff;
+        padding: 12px 30px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        border: 2px solid #ffffff;
+        transition: all 0.3s ease;
+      }
+      .btn-secondary:hover {
+        background-color: #ffffff;
+        color: #1c2833;
+      }
+      /* ===== SECTION STYLES ===== */
+      section {
+        padding: 70px 20px;
+      }
+      .section-heading {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .section-heading h2 {
+        font-size: 2rem;
+        color: #1c2833;
+        margin-bottom: 0.8rem;
+      }
+      .divider {
+        width: 70px;
+        height: 4px;
+        background: linear-gradient(90deg, #0f7173, #fe8d3f);
+        border-radius: 2px;
+        margin: 0 auto;
+      }
+      .section-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 1rem auto 0;
+        color: #555555;
+        font-size: 1.05rem;
+      }
+      /* ===== FEATURED IMAGES / GALLERY SECTION ===== */
+      .gallery-section {
+        background-color: #ffffff;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .gallery-card {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(28, 40, 51, 0.08);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        background-color: #f4f6f6;
+      }
+      .gallery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(15, 113, 115, 0.15);
+      }
+      .gallery-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        background: linear-gradient(135deg, #0f7173, #fe8d3f);
+      }
+      .gallery-card-content {
+        padding: 1.25rem;
+      }
+      .gallery-card-content h3 {
+        color: #1c2833;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .gallery-card-content p {
+        font-size: 0.9rem;
+        color: #666666;
+        margin-bottom: 0;
+      }
+      /* ===== ABOUT SECTION ===== */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      .about-text h3 {
+        font-size: 1.5rem;
+        color: #1c2833;
+        margin-bottom: 1.2rem;
+      }
+      .about-text p {
+        margin-bottom: 1rem;
+        color: #444444;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(28, 40, 51, 0.05);
+      }
+      .stat-item h4 {
+        font-size: 2rem;
+        color: #0f7173;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .stat-item p {
+        font-size: 0.9rem;
+        color: #666666;
+      }
+      /* ===== CTA / DONATE SECTION — WITH QR CODE ===== */
+      .cta-section {
+        background: linear-gradient(135deg, #0f7173 0%, #0a5c5e 100%);
+        color: #ffffff;
+        text-align: center;
+      }
+      .cta-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .cta-section p {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        opacity: 0.9;
+      }
+      /* QR CODE IMAGE BOX */
+      .qr-code-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+      .qr-code-box {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 220px;
+        width: 100%;
+      }
+      .qr-code-img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+      }
+      .qr-label {
+        margin-top: 12px;
+        color: #333;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      /* ===== FOOTER ===== */
+      footer {
+        background-color: #1c2833;
+        color: #ffffff;
+        padding: 50px 20px 20px;
+        margin-top: 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      .footer-col h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+      .footer-col p,
+      .footer-col a {
+        font-size: 0.9rem;
+        color: #cccccc;
+        text-decoration: none;
+        line-height: 1.8;
+      }
+      .footer-col a:hover {
+        color: #fe8d3f;
+      }
+      .social-links {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+      .social-links a {
+        width: 38px;
+        height: 38px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .social-links a:hover {
+        background-color: #fe8d3f;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.85rem;
+        color: #888888;
+        margin-top: 2rem;
+      }
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .about-content,
+        .footer-grid,
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav ul {
+          gap: 1rem;
+        }
+      }
+      @media (max-width: 650px) {
+        .about-content,
+        .footer-grid,
+        .gallery-grid,
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+        nav ul {
+          display: none;
+        }
+        section {
+          padding: 40px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header>
+      <div class="container nav-wrapper">
+        <a href="#" class="logo">
+          <img
+            src="https://i.imgur.com/K5ZxqL9.png"
+            alt="Let's Share Foundation"
+          />
+        </a>
+        <nav>
+          <ul>
+            <li><a href="#about">Who We Are</a></li>
+            <li><a href="#programs">What We Do</a></li>
+            <li><a href="#impact">Our Impact</a></li>
+            <li><a href="#action">Take Action</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#donate" class="btn-donate">Donate</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+      <div class="container">
+        <h1>Sharing Hope, Building Futures</h1>
+        <p>
+          We provide medical missions, educational support, and community
+          outreach to underserved communities across the Philippines.
+        </p>
+        <div class="hero-buttons">
+          <a href="#about" class="btn-primary">Learn More</a>
+          <a href="#donate" class="btn-secondary">Support Our Work</a>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FEATURED MISSIONS / GALLERY ===== -->
+    <section class="gallery-section" id="impact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Our Recent Missions</h2>
+          <div class="divider"></div>
+        </div>
+        <p class="section-intro">
+          Bringing healthcare, education, and hope to communities across the
+          Philippines.
+        </p>
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <img src="" alt="Medical Mission — Quezon City" />
+            <div class="gallery-card-content">
+              <h3>Medical Mission — Quezon City</h3>
+              <p>Free checkups and medicines provided to over 300 families.</p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="" alt="Community Health Checkup" />
+            <div class="gallery-card-content">
+              <h3>Community Health Day</h3>
+              <p>
+                Volunteers serving residents in Ilocos Sur and nearby areas.
+              </p>
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img src="" alt="Education Outreach Program" />
+            <div class="gallery-card-content">
+              <h3>Education Support Program</h3>
+              <p>School supplies and scholarships for deserving students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== WHO WE ARE / ABOUT ===== -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Who We Are</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Our Story</h3>
+            <p>
+              Let's Share Foundation is a registered non-profit organization
+              founded in 2007. We believe that everyone deserves access to
+              quality healthcare and education — regardless of where they live
+              or what they have.
+            </p>
+            <p>
+              What started as a small group of volunteers has grown into a
+              movement of kindness, serving communities across the Philippines
+              and beyond. Every donation, every hour volunteered, and every act
+              of sharing makes a real difference in someone's life.
+            </p>
+            <p><strong>Together, we share. Together, we care.</strong></p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h4>80+</h4>
+              <p>Missions Completed</p>
+            </div>
+            <div class="stat-item">
+              <h4>17+</h4>
+              <p>Years of Service</p>
+            </div>
+            <div class="stat-item">
+              <h4>10K+</h4>
+              <p>Lives Served</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== WHAT WE DO / PROGRAMS ===== -->
+    <section style="background-color: #ffffff" id="programs">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What We Do</h2>
+          <div class="divider"></div>
+        </div>
+        <p class="section-intro">
+          Our programs are designed to uplift communities in meaningful,
+          sustainable ways.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              padding: 2.5rem 2rem;
+              background: #f4f6f6;
+              border-radius: 12px;
+            "
+          >
+            <i
+              class="fas fa-heartbeat"
+              style="font-size: 2.8rem; color: #fe8d3f; margin-bottom: 1rem"
+            ></i>
+            <h3 style="color: #1c2833; margin-bottom: 0.8rem">
+              Medical Missions
+            </h3>
+            <p style="color: #555; font-size: 0.95rem">
+              Free medical checkups, dental care, and medicines to remote and
+              underserved communities.
+            </p>
+          </div>
+          <div
+            style="
+              text-align: center;
+              padding: 2.5rem 2rem;
+              background: #f4f6f6;
+              border-radius: 12px;
+            "
+          >
+            <i
+              class="fas fa-graduation-cap"
+              style="font-size: 2.8rem; color: #fe8d3f; margin-bottom: 1rem"
+            ></i>
+            <h3 style="color: #1c2833; margin-bottom: 0.8rem">
+              Education Support
+            </h3>
+            <p style="color: #555; font-size: 0.95rem">
+              Scholarships, school supplies, and learning assistance for
+              children in need.
+            </p>
+          </div>
+          <div
+            style="
+              text-align: center;
+              padding: 2.5rem 2rem;
+              background: #f4f6f6;
+              border-radius: 12px;
+            "
+          >
+            <i
+              class="fas fa-hands-helping"
+              style="font-size: 2.8rem; color: #fe8d3f; margin-bottom: 1rem"
+            ></i>
+            <h3 style="color: #1c2833; margin-bottom: 0.8rem">
+              Community Outreach
+            </h3>
+            <p style="color: #555; font-size: 0.95rem">
+              Partnership programs that empower communities to build better
+              futures together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== DONATE SECTION — QR CODE ===== -->
+    <section class="cta-section" id="donate">
+      <div class="container">
+        <h2>Make a Difference Today</h2>
+        <p>
+          Scan the QR code below to donate and support our mission. Every
+          contribution, big or small, creates lasting change.
+        </p>
+
+        <!-- YOUR QR CODE — PASTE YOUR LINK HERE ✅ -->
+        <div class="qr-code-container">
+          <div class="qr-code-box">
+            <img
+              src="https://YOUR-QR-CODE-IMAGE-LINK-HERE.jpg"
+              alt="Donate QR Code"
+              class="qr-code-img"
+            />
+            <p class="qr-label">Scan to Donate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== CONTACT — FORM REMOVED, INFO ONLY ✅ ===== -->
+    <section style="background-color: #f4f6f6" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Get In Touch</h2>
+          <div class="divider"></div>
+        </div>
+        <div style="max-width: 600px; margin: 0 auto; text-align: center">
+          <h3 style="color: #1c2833; margin-bottom: 1.5rem">
+            Contact Information
+          </h3>
+          <p
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.75rem;
+              margin-bottom: 1rem;
+            "
+          >
+            <i class="fas fa-envelope" style="color: #fe8d3f; width: 20px"></i>
+            info@letssharefoundation.org
+          </p>
+          <p
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.75rem;
+              margin-bottom: 1rem;
+            "
+          >
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: #fe8d3f; width: 20px"
+            ></i>
+            Serving Philippines & United States
+          </p>
+          <p
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.75rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <i class="fas fa-clock" style="color: #fe8d3f; width: 20px"></i>
+            Monday — Friday, 9:00 AM — 5:00 PM
+          </p>
+          <div class="social-links" style="justify-content: center">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Let's Share Foundation</h4>
+            <p>
+              Registered 501(c)(3) Non-Profit Organization
+              <br />
+              Founded 2007
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#about">About Us</a>
+            <a href="#programs">Our Programs</a>
+            <a href="#impact">Our Impact</a>
+            <a href="#contact">Contact Us</a>
+          </div>
+          <div class="footer-col">
+            <h4>Get Involved</h4>
+            <a href="#donate">Donate Now</a>
+            <a href="#">Volunteer With Us</a>
+            <a href="#">Partner With Us</a>
+            <a href="#">News & Updates</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:info@letssharefoundation.org">
+              info@letssharefoundation.org
+            </a>
+            <a href="#">Philippines Office</a>
+            <a href="#">U.S. Office</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Let's Share Foundation. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
